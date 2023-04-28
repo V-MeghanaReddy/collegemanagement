@@ -1,0 +1,34 @@
+{% extends 'bootstrap.html' %}
+{% block title%}
+    displaystudent
+{%endblock%}
+
+{%block body%}
+    <table class="table">
+    <thead>
+      <tr>
+        <th>fname</th>
+        <th>lname</th>
+        <th>mobile</th>
+        <th>email</th>
+        <th>cityname</th>
+        <th>coursename</th>
+      </tr>
+    </thead>
+    <tbody>
+    {%for i in students%}
+    <tr>
+        <td>{{i.fname}}</td>
+        <td>{{i.lname}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.cityname}}</td>
+        <td>{{i.coursename}}</td>
+        <td><a href="{% url 'update' i.id %}">update</a> </td>
+        <td><a href="{% url 'delete' i.id %}">delete</a> </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}

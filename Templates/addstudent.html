@@ -1,0 +1,34 @@
+{% extends 'bootstrap.html' %}
+{% block title%}
+    addstudent
+{%endblock%}
+{% block body%}
+<div class="container">
+    <h2>ADD STUDENT DETAILS</h2>
+<form action="readstudentdata" method="post">
+    {% csrf_token %}
+    fname<input type="text" id ='tbfname' name="tbfname"><br>
+    lname<input type="text" id ='tblname' name="tblname"><br>
+    mobile<input type="text" id ='tbmobile' name="tbmobile"><br>
+    email<input type="text" id ='tbemail' name="tbemail"><br>
+    city<select name="ddlcity">
+        <option>....select...</option>
+        {% for i in cities%}
+            <option>{{i.cityname}}</option>
+         {% endfor %}
+        </select><br>
+    course<select name="ddlcourse">
+            <option>...select...</option>
+                {% for i in courses%}
+            <option>{{i.coursename}}</option>
+
+                {% endfor %}
+
+            </select><br>
+
+    <div class="form-outline mb-4">
+    <input type="submit" value="Add Student" class="btn btn-success " />
+    </div>
+</form>
+</div>
+{%endblock %}
